@@ -1,0 +1,55 @@
+server:
+  port: 8093
+  undertow:
+    decode-url:
+
+spring:
+  application:
+    name: ms-procedure
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    username: Certidigitaleducativo@gmail.com
+    password: hqifpzsjixqqaapa
+    #username: hackmalli2020@gmail.com
+    #password: meyacucmrraayazl
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  r2dbc:
+    url: r2dbc:postgresql://104.154.162.191/dbprocedure
+    username: postgres
+    password: '*\PHd-D0c.|"u(ZI'
+    #url: ${DB_URL}/dbprocedure
+    #username: ${DB_USERNAME}
+    #password: ${DB_PASSWORD}
+client:
+  ms-documents-attachments:
+    url: http://www.deillanes.com/backend/documentsattachments/documents_attachments
+    #url: ${MS_DOCUMENTS_ATTACHMENTS_URL}
+  ms-person:
+    url: http://www.deillanes.com/backend/person/person
+    #url: ${MS_PERSON_URL}
+  ms-student:
+    url: http://www.deillanes.com/backend/student/student
+    #url: ${MS_STUDENT_URL}
+feign:
+  client:
+    config:
+      ms-documents-attachments:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: FULL
+      ms-person:
+        connectTimeout: 3000
+        readTimeout: 5000
+        loggerLevel: BASIC
+      ms-student:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: FULL
